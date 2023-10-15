@@ -20,3 +20,5 @@ to_iso8601 <<- function(dateVariable, offset) {
   return(dateZ)
 }
 to_iso8601(as_datetime("2016-09-01 10:11:12"),-4)
+
+
