@@ -22,3 +22,7 @@ to_iso8601 <<- function(dateVariable, offset) {
 to_iso8601(as_datetime("2016-09-01 10:11:12"),-4)
 
 
+#Creating function to part 5 for transforming volumes.
+transform_volumes <- function(fromGQL) {
+  
+}
