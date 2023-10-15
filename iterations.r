@@ -40,6 +40,7 @@ stations_metadata_df <-
   stations_metadata %>% 
   transform_metadata_to_df(.)
 
+stations_metadata_df #Looking at dataframe. 
 
 #### 3: Testing metadata
 source("functions/data_tests.r")
