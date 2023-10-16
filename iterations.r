@@ -68,5 +68,3 @@ stations_metadata_df %>%
 #created from function transform_volumes(), however geom_point could plot 
 #the values. Do not understand how geom_line() could not plot the line. 
 
-
-
