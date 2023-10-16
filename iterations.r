@@ -40,6 +40,7 @@ stations_metadata_df <-
   stations_metadata %>% 
   transform_metadata_to_df(.)
 
+stations_metadata_df #Looking at dataframe. 
 
 #### 3: Testing metadata
 source("functions/data_tests.r")
@@ -61,9 +62,9 @@ stations_metadata_df %>%
   GQL(., .url = configs$vegvesen_url) %>%
   transform_volumes() %>% 
   ggplot(aes(x=from, y=volume)) + 
-  geom_line() + 
+  geom_point() + 
   theme_classic()
-
-
-
+#Changed to geom_point since geom_line() did not work with the dataframe
+#created from function transform_volumes(), however geom_point could plot 
+#the values. Do not understand how geom_line() could not plot the line. 
 
