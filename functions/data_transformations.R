@@ -19,10 +19,18 @@ to_iso8601 <<- function(dateVariable, offset) {
   dateZ <- paste(dateWithOffsetISO,"Z", sep ="")
   return(dateZ)
 }
-to_iso8601(as_datetime("2016-09-01 10:11:12"),-4)
 
 
 #Creating function to part 5 for transforming volumes.
-transform_volumes <- function(fromGQL) {
-  
+transform_volumes <- function(metadata) {
+  combined <- metadata$trafficData$volume$byHour$edges %>%
+    map(~ .x %>%
+          map(as_tibble) %>%
+          list_rbind() %>%
+          mutate(total = map(total, unlist)) %>%
+          mutate(volume = map_dbl(total, "volume")) %>%
+          select(-total)
+    )
+  final_combined <- bind_rows(combined)
+  return(final_combined)
 }
